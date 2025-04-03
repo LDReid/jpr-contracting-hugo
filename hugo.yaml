@@ -1,7 +1,7 @@
 baseURL: 'https://jprcontracting.com/'
 languageCode: 'en-us'
 title: JPR Contracting - Quality Home Builds & Carpentry
-theme: ''
+#theme: ''
 
 params:
   description: 'JPR Contracting specializes in high-quality home renovations, custom carpentry, and professional contracting services in Portland, OR and surrounding areas.'
