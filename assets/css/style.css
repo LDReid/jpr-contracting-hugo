@@ -582,11 +582,10 @@ header {
 @media (max-width: 767px) {
   .mobile-menu {
     display: block;
-    position: fixed;
+    position: absolute;
     top: var(--header-height);
     left: 0;
     width: 100%;
-    transform: translateY(-1rem);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -597,7 +596,6 @@ header {
   }
 
   .mobile-menu.show {
-    transform: translateY(0);
     opacity: 1;
     visibility: visible;
   }
@@ -613,23 +611,12 @@ header {
   font-size: 1rem;
   font-weight: 500;
   opacity: 0;
-  transform: translateX(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
-  transition-delay: 0s;
+  transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 .mobile-menu.show .mobile-nav-link {
   opacity: 1;
-  transform: translateX(0);
 }
-
-/* Add transition delays to create a staggered animation */
-.mobile-menu.show .mobile-nav-link:nth-child(1) { transition-delay: 0.1s; }
-.mobile-menu.show .mobile-nav-link:nth-child(2) { transition-delay: 0.15s; }
-.mobile-menu.show .mobile-nav-link:nth-child(3) { transition-delay: 0.2s; }
-.mobile-menu.show .mobile-nav-link:nth-child(4) { transition-delay: 0.25s; }
-.mobile-menu.show .mobile-nav-link:nth-child(5) { transition-delay: 0.3s; }
-.mobile-menu.show .mobile-nav-link:nth-child(6) { transition-delay: 0.35s; }
 
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
@@ -1122,6 +1109,7 @@ footer {
 
 .portfolio-grid-container {
   margin-block: -4rem;
+  margin-inline: -1rem;
 }
 
 @media (min-width: 576px) {
