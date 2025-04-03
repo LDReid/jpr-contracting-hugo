@@ -1,0 +1,27 @@
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© {{ now.Format "2006" }} JPR Contracting. All rights reserved.</p>
+      <div class="footer-links-inline">
+        <a href="/privacy-policy" class="footer-link-inline">Privacy Policy</a>
+        <a href="/terms-of-service" class="footer-link-inline">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Initialize Netlify Identity -->
+<script>
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                });
+            }
+        });
+    }
+</script>
+
+<!-- JavaScript -->
+<script src="/js/main.js"></script> 

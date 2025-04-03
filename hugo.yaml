@@ -1,0 +1,83 @@
+baseURL: 'https://jprcontracting.com/'
+languageCode: 'en-us'
+title: JPR Contracting - Quality Home Builds & Carpentry
+theme: ''
+
+params:
+  description: 'JPR Contracting specializes in high-quality home renovations, custom carpentry, and professional contracting services in Portland, OR and surrounding areas.'
+  logo: '/images/JPR-contracting_din_r2.png'
+  email: 'Jamespaulreid@gmail.com'
+  phone: '905-903-0488'
+  address: '000 Edwina Drive, Trent Lakes, ON K0M1A0'
+  social:
+    facebook: 'https://facebook.com/jprcontracting'
+    instagram: 'https://instagram.com/jprcontracting'
+    twitter: 'https://twitter.com/jprcontracting'
+  
+  # Section Content
+  sections:
+    hero:
+      title: 'Specializing in Custom Home Builds'
+      description: 'JPR Contracting delivers exceptional carpentry and renovation services with attention to detail and commitment to quality. Fully licensed, bonded, and insured.'
+      image: '/images/uploads/482006556_10236241716722027_5460036076439850526_n.jpg'
+
+    
+    services:
+      title: 'Our Services'
+      description: 'We offer a comprehensive range of carpentry and contracting services to meet all your home improvement needs.'
+    
+    portfolio:
+      title: 'Featured Projects'
+      description: 'Take a look at some of our featured works. We take pride in our craftsmanship and attention to detail.'
+      page_title: 'Our Portfolio'
+      page_description: 'Explore our completed projects and see the quality of our craftsmanship firsthand.'
+
+    faqs:
+      title: 'Frequently Asked Questions'
+      description: 'Answers to common questions about our services and process.'
+    
+    testimonials:
+      title: 'What Our Clients Say'
+      description: "Don't just take our word for it. Here's what our satisfied clients have to say about our work."
+    
+    cta:
+      title: 'Ready to Start Your Project?'
+      description: "Contact us today for a free, no-obligation quote. We're ready to help bring your vision to life."
+    
+    contact:
+      title: 'Contact Us'
+      description: "Ready to start your project? Get in touch with us today and let's discuss how we can help bring your vision to life."
+      form_title: 'Send Us a Message'
+      success_message: 'Thank you for your message. We will get back to you shortly.'
+
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 1
+    - identifier: services
+      name: Services
+      url: /services/
+      weight: 2
+    - identifier: portfolio
+      name: Portfolio
+      url: /portfolio/
+      weight: 3
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 4
+
+taxonomies:
+  category: categories
+  tag: tags
+  
+outputFormats:
+  HTML:
+    permalinkable: true
+  
+markup:
+  goldmark:
+    renderer:
+      unsafe: true 

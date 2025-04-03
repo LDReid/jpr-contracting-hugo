@@ -1,0 +1,31 @@
+<header>
+  <div class="container">
+    <div class="header-content">
+      <a href="/" class="logo">
+        <img src="{{ .Site.Params.logo }}" alt="JPR Contracting Logo">
+      </a>
+      <nav class="main-nav">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}" class="nav-link {{ if $currentPage.IsMenuCurrent "main" . }}active{{ else if $currentPage.HasMenuCurrent "main" . }}active{{ else if eq $currentPage.RelPermalink .URL }}active{{ end }}">{{ .Name }}</a>
+        {{ end }}
+      </nav>
+      <a href="/contact" class="cta-button desktop-only">Get a Quote</a>
+      <button id="mobile-menu-toggle" class="mobile-menu-button" aria-label="Toggle menu" aria-expanded="false">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="mobile-menu">
+    <nav class="mobile-nav">
+      {{ range .Site.Menus.main }}
+      <a href="{{ .URL }}" class="mobile-nav-link {{ if $currentPage.IsMenuCurrent "main" . }}active{{ else if $currentPage.HasMenuCurrent "main" . }}active{{ else if eq $currentPage.RelPermalink .URL }}active{{ end }}">{{ .Name }}</a>
+      {{ end }}
+      <a href="/contact" class="mobile-cta-button">Get a Quote</a>
+    </nav>
+  </div>
+</header> 

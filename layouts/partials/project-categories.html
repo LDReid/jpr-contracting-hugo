@@ -1,0 +1,8 @@
+<div class="portfolio-filter">
+  <button class="filter-button active" data-filter="all">All</button>
+  {{ with .Site.Data.projectCategories }}
+    {{ range .categories }}
+      <button class="filter-button" data-filter="{{ .slug }}">{{ .name }}</button>
+    {{ end }}
+  {{ end }}
+</div> 

@@ -1,0 +1,86 @@
+{{ define "main" }}
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">Our Services</h1>
+      <p class="page-description">
+        We provide a comprehensive range of high-quality carpentry and contracting services to meet all your home improvement needs.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services List -->
+  <section class="services-list-section">
+    <div class="container">
+      <div class="services-list">
+        {{ range sort .Site.Data.services "weight" }}
+        <div class="service-item" id="{{ .id }}">
+          <div class="service-image-container">
+            <img src="{{ .image }}" alt="{{ .title }}" class="service-image">
+          </div>
+          <div class="service-details">
+            <div class="service-title-container">
+              <h2 class="service-title">{{ .title }}</h2>
+              <p class="service-description">{{ .description }}</p>
+            </div>
+            <ul class="service-features">
+              {{ range .features }}
+              <li class="service-feature">
+                <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>{{ . }}</span>
+              </li>
+              {{ end }}
+            </ul>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Process</h2>
+        <p class="section-description">
+          We follow a streamlined process to ensure your project is completed efficiently and to your satisfaction.
+        </p>
+      </div>
+      <div class="process-steps">
+        {{ range .Site.Data.process_steps.steps }}
+        <div class="process-step">
+          <div class="step-number">{{ .id }}</div>
+          <div class="step-content">
+            <h3 class="step-title">{{ .title }}</h3>
+            <p class="step-description">
+              {{ .description }}
+            </p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faqs-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">{{ .Site.Params.sections.faqs.title }}</h2>
+        <p class="section-description">
+          {{ .Site.Params.sections.faqs.description }}
+        </p>
+      </div>
+      {{ partial "faqs-list.html" . }}
+    </div>
+  </section>
+
+<!-- CTA Section -->
+{{ partial "cta.html" . }}
+
+<!-- Include Scroll Reveal Script -->
+<script src="/js/scroll-reveal.js"></script>
+{{ end }} 

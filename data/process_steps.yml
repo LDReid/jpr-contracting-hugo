@@ -1,0 +1,20 @@
+steps:
+  - id: 1
+    title: "Consultation"
+    description: "We meet with you to discuss your project, understand your vision, and assess your needs."
+    
+  - id: 2
+    title: "Design & Planning"
+    description: "We create a detailed plan, including design concepts, materials selection, and project timeline."
+
+  - id: 3
+    title: "Proposal & Contract"
+    description: "We provide a comprehensive proposal with transparent pricing and a clear contract."
+    
+  - id: 4
+    title: "Construction"
+    description: "Our skilled craftsmen execute the project with attention to detail and quality workmanship."
+
+  - id: 5
+    title: "Final Inspection"
+    description: "We conduct a thorough inspection to ensure everything meets our high standards and your expectations."

@@ -1,0 +1,14 @@
+<div class="projects-grid">
+  {{ range $key, $project := .Site.Data.projects }}
+    <div class="project-card" data-category="{{ $project.category_slug }}">
+      <div class="project-image">
+        <img src="{{ $project.image }}" alt="{{ $project.title }}">
+        <div class="project-overlay">
+          <h3>{{ $project.title }}</h3>
+          <span class="project-category">{{ $project.category }}</span>
+          <a href="/portfolio/{{ $project.id }}" class="btn btn-primary">View Project</a>
+        </div>
+      </div>
+    </div>
+  {{ end }}
+</div> 

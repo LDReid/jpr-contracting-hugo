@@ -1,0 +1,17 @@
+{{ define "main" }}
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title">{{ .Site.Params.sections.portfolio.page_title }}</h1>
+      <p class="page-description">
+        {{ .Site.Params.sections.portfolio.page_description }}
+      </p>
+    </div>
+  </section>
+
+  <!-- Include Portfolio Grid Partial -->
+  {{ partial "portfolio-grid.html" . }}
+
+  <!-- CTA Section -->
+  {{ partial "cta.html" . }}
+{{ end }} 

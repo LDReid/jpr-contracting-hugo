@@ -1,0 +1,249 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # Site Configuration
+  - name: "site_config"
+    label: "Site Configuration"
+    files:
+      - file: "hugo.yaml"
+        label: "Main Configuration"
+        name: "main_config"
+        fields:
+          - {label: "Site Title", name: "title", widget: "string"}
+          - {label: "Base URL", name: "baseURL", widget: "string"}
+          - {label: "Language Code", name: "languageCode", widget: "string"}
+          - label: "Site Parameters"
+            name: "params"
+            widget: "object"
+            fields:
+              - {label: "Site Description", name: "description", widget: "text"}
+              - {label: "Logo", name: "logo", widget: "string"}
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Phone", name: "phone", widget: "string"}
+              - {label: "Address", name: "address", widget: "string"}
+              - label: "Social Media"
+                name: "social"
+                widget: "object"
+                fields:
+                  - {label: "Facebook", name: "facebook", widget: "string", required: false}
+                  - {label: "Instagram", name: "instagram", widget: "string", required: false}
+                  - {label: "Twitter", name: "twitter", widget: "string", required: false}
+              
+              # Section Content
+              - label: "Section Content"
+                name: "sections"
+                widget: "object"
+                fields:
+                  - label: "Hero Section"
+                    name: "hero"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string"}
+                      - {label: "Description", name: "description", widget: "text"}
+                      - {label: "Primary Button Text", name: "primary_button", widget: "string"}
+                      - {label: "Secondary Button Text", name: "secondary_button", widget: "string"}
+                  
+                  - label: "Services Section"
+                    name: "services"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string"}
+                      - {label: "Description", name: "description", widget: "text"}
+                      - {label: "CTA Text", name: "cta_text", widget: "string"}
+                  
+                  - label: "Portfolio Section"
+                    name: "portfolio"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string"}
+                      - {label: "Description", name: "description", widget: "text"}
+                      - {label: "Page Title", name: "page_title", widget: "string"}
+                      - {label: "Page Description", name: "page_description", widget: "text"}
+                  
+                  - label: "Testimonials Section"
+                    name: "testimonials"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string"}
+                      - {label: "Description", name: "description", widget: "text"}
+                  
+                  - label: "CTA Section"
+                    name: "cta"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string"}
+                      - {label: "Description", name: "description", widget: "text"}
+                      - {label: "Button Text", name: "button_text", widget: "string"}
+                  
+                  - label: "Contact Section"
+                    name: "contact"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string"}
+                      - {label: "Description", name: "description", widget: "text"}
+                      - {label: "Form Title", name: "form_title", widget: "string"}
+                      - {label: "Success Message", name: "success_message", widget: "string"}
+
+  # Services
+  - name: "services"
+    label: "Services"
+    folder: "data/services"
+    create: true
+    extension: "yml"
+    format: "yml"
+    slug: "{{fields.id}}"
+    fields:
+      - {label: "ID", name: "id", widget: "string", hint: "Short name used for URL and references (e.g., bathroom-remodels)"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Content", name: "content", widget: "markdown", required: false}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false}
+      - {label: "Image", name: "image", widget: "image", required: false, hint: "Featured image for this service"}
+
+  # Projects
+  - name: "projects"
+    label: "Projects"
+    folder: "data/projects"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Category', name: 'category', widget: 'string' }
+      - { label: 'Location', name: 'location', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'date' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Featured Image', name: 'image', widget: 'image' }
+      - { label: 'Services', name: 'services', widget: 'list' }
+      - label: 'Gallery'
+        name: 'gallery'
+        widget: 'list'
+        summary: '{{fields.image}}'
+        field: { label: Image, name: image, widget: image }
+      - label: 'Testimonial'
+        name: 'testimonial'
+        widget: 'object'
+        required: false
+        fields:
+          - { label: 'Quote', name: 'quote', widget: 'text', required: false }
+          - { label: 'Author', name: 'author', widget: 'string', required: false }
+          - { label: 'Position', name: 'position', widget: 'string', required: false }
+
+  # Project Categories
+  - name: "project_categories"
+    label: "Project Categories"
+    files:
+      - file: "data/projectCategories/categories.yml"
+        label: "Categories"
+        name: "categories"
+        fields:
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Slug", name: "slug", widget: "string", hint: "URL-friendly version of the name (e.g., bathroom)"}
+
+  # Testimonials
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "data/testimonials"
+    create: true
+    extension: "yml"
+    format: "yml"
+    slug: "{{fields.name | slugify}}"
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Image", name: "image", widget: "string", hint: "Path to client image"}
+      - {label: "Quote", name: "quote", widget: "text"}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false}
+
+  # FAQs
+  - name: "faqs"
+    label: "FAQs"
+    folder: "data/faqs"
+    create: true
+    extension: "yml"
+    format: "yml"
+    slug: "{{fields.question | slugify}}"
+    fields:
+      - {label: "Question", name: "question", widget: "string"}
+      - {label: "Answer", name: "answer", widget: "markdown"}
+      - {label: "Category", name: "category", widget: "string", required: false, hint: "Optional category for grouping FAQs"}
+
+  # Process Steps
+  - name: "process_steps"
+    label: "Process Steps"
+    files:
+      - file: "data/process_steps.yml"
+        label: "Service Process Steps"
+        name: "process_steps"
+        fields:
+          - label: "Steps"
+            name: "steps"
+            widget: "list"
+            fields:
+              - {label: "ID", name: "id", widget: "number", value_type: "int"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+  # Pages
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/_index.md"
+        label: "Home Page"
+        name: "home"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+          
+      - file: "content/services/_index.md"
+        label: "Services Page"
+        name: "services"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+          
+      - file: "content/portfolio/_index.md"
+        label: "Portfolio Page"
+        name: "portfolio"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+          - {label: "Layout", name: "layout", widget: "hidden", default: "portfolio"}
+          
+      - file: "content/contact/_index.md"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text", required: false}
+          - {label: "Content", name: "body", widget: "markdown", required: false}
+
+  # Navigation
+  - name: "menus"
+    label: "Navigation Menus"
+    files:
+      - file: "hugo.yaml"
+        label: "Main Menu"
+        name: "main_menu"
+        fields:
+          - label: "Menu Items"
+            name: "menu.main"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "URL", name: "url", widget: "string"}
+              - {label: "Weight", name: "weight", widget: "number", value_type: "int"}
+              - {label: "Identifier", name: "identifier", widget: "string"} 

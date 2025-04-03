@@ -1,0 +1,108 @@
+{{ define "main" }}
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <img src="{{ .Site.Params.logo }}" alt="JPR Contracting Logo" class="hero-logo">
+          <div class="hero-content-text">
+            <h1 class="hero-title">{{ .Site.Params.sections.hero.title }}</h1>
+            <p class="hero-description">
+            {{ .Site.Params.sections.hero.description }}
+            </p>
+          </div>
+          <div class="hero-buttons">
+            <a href="/contact" class="primary-button">
+              Get a Free Quote
+              <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="/portfolio" class="secondary-button">View Our Work</a>
+          </div>
+        </div>
+          <img src="{{ .Site.Params.sections.hero.image }}" alt="Hero Image of a completed renovation project" class="hero-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Preview Section -->
+  <section class="portfolio-preview-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">{{ .Site.Params.sections.portfolio.title }}</h2>
+        <p class="section-description">
+          {{ .Site.Params.sections.portfolio.description }}
+        </p>
+      </div>
+      <div class="portfolio-grid-container">
+        {{ partial "portfolio-grid.html" . }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">{{ .Site.Params.sections.services.title }}</h2>
+        <p class="section-description">
+          {{ .Site.Params.sections.services.description }}
+        </p>
+      </div>
+      <div class="services-grid">
+        {{ range $key, $service := .Site.Data.services }}
+        <div class="service-card">
+          <div class="service-title-landing-container">
+            <h3 class="service-title-landing">{{ $service.title }}</h3>
+          </div>
+          <p class="service-description">{{ $service.description }}</p>
+        </div>
+        {{ end }}
+      </div>
+      <div class="services-cta">
+        <a href="/services" class="primary-button">
+          Learn More
+          <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faqs-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">{{ .Site.Params.sections.faqs.title }}</h2>
+        <p class="section-description">
+          {{ .Site.Params.sections.faqs.description }}
+        </p>
+      </div>
+      {{ partial "faqs-list.html" . }}
+    </div>
+  </section>
+
+  <!-- Testimonials Section 
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">{{ .Site.Params.sections.testimonials.title }}</h2>
+        <p class="section-description">
+          {{ .Site.Params.sections.testimonials.description }}
+        </p>
+      </div>
+      {{ partial "testimonials-list.html" . }}
+    </div>
+  </section>-->
+
+  <!-- CTA Section -->
+  {{ partial "cta.html" . }}
+
+
+  <!-- Include Scroll Reveal Script -->
+  <script src="/js/scroll-reveal.js"></script>
+{{ end }} 

@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="thank-you-section">
+    <div class="container">
+        <div class="thank-you-content">
+            <span class="icon-circle">
+                {{ partial "icons/check.html" . }}
+            </span>
+            
+            <h1>{{ .Title }}</h1>
+            
+            <p>{{ .Params.message }}</p>
+            
+            <a href="{{ .Params.cta_link }}" class="btn">{{ .Params.cta_text }}</a>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <p>Call us: (503) 555-7890</p>
+                </div>
+                <div class="contact-item">
+                    <p>Email: info@jprcontracting.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}

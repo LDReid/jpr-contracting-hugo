@@ -1,0 +1,37 @@
+<div class="testimonials-slider" id="testimonials-slider">
+  {{ range $key, $testimonial := .Site.Data.testimonials }}
+  <div class="testimonial-card">
+    <div class="testimonial-content">
+      <div class="testimonial-stars">
+        {{ range seq 5 }}
+          <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        {{ end }}
+      </div>
+      <blockquote class="testimonial-quote">{{ $testimonial.quote }}</blockquote>
+      <div class="testimonial-author">
+        <div class="author-image-container">
+          <img src="{{ $testimonial.image }}" alt="{{ $testimonial.name }}" class="author-image">
+        </div>
+        <div class="author-info">
+          <p class="author-name">{{ $testimonial.name }}</p>
+          <p class="author-location">{{ $testimonial.location }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</div>
+<div class="testimonial-controls">
+  <button id="prev-testimonial" class="testimonial-control" aria-label="Previous testimonial">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+  <button id="next-testimonial" class="testimonial-control" aria-label="Next testimonial">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+</div>
