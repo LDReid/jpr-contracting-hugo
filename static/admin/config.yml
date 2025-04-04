@@ -58,28 +58,66 @@ collections:
                   - {label: "Instagram", name: "instagram", widget: "string", required: false, hint: "Instagram profile URL (leave blank if not used)"}
                   - {label: "Twitter", name: "twitter", widget: "string", required: false, hint: "Twitter profile URL (leave blank if not used)"}
                   - {label: "LinkedIn", name: "linkedin", widget: "string", required: false, hint: "LinkedIn profile URL (leave blank if not used)"}
-  
-  # ===== SERVICES SECTION SETTINGS =====
-  - name: "services_section"
-    label: "Services Section Settings"
-    files:
-      - file: "hugo.yaml"
-        label: "Services Section"
-        name: "params"
-        editor:
-          preview: false
-        fields:
-          - label: "Services Section"
-            name: "sections"
-            widget: "object"
-            fields:
-              - label: "Services Page Header"
-                name: "services"
+
+              - label: "Section Content"
+                name: "sections"
                 widget: "object"
                 fields:
-                  - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
-                  - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
-              
+                  - label: "Hero Section"
+                    name: "hero"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string", hint: "Main headline for the hero section"}
+                      - {label: "Description", name: "description", widget: "text", hint: "Brief description text for the hero section"}
+                      - {label: "Background Image", name: "image", widget: "image", hint: "Background image for the hero section"}
+                  
+                  - label: "Services Section"
+                    name: "services"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string", hint: "Heading for the services section"}
+                      - {label: "Description", name: "description", widget: "text", hint: "Introduction text for the services section"}
+                  
+                  - label: "Portfolio Section"
+                    name: "portfolio"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string", hint: "Heading for the portfolio section"}
+                      - {label: "Description", name: "description", widget: "text", hint: "Introduction text for the portfolio section"}
+                      - {label: "Page Title", name: "page_title", widget: "string", hint: "Title for the portfolio detail page"}
+                      - {label: "Page Description", name: "page_description", widget: "text", hint: "Description for the portfolio detail page"}
+                  
+                  - label: "FAQs Section"
+                    name: "faqs"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string", hint: "Heading for the FAQs section"}
+                      - {label: "Description", name: "description", widget: "text", hint: "Introduction text for the FAQs section"}
+                  
+                  - label: "Testimonials Section"
+                    name: "testimonials"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string", hint: "Heading for the testimonials section"}
+                      - {label: "Description", name: "description", widget: "text", hint: "Introduction text for the testimonials section"}
+                  
+                  - label: "Call to Action Section"
+                    name: "cta"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string", hint: "Heading for the call to action section"}
+                      - {label: "Description", name: "description", widget: "text", hint: "Text for the call to action section"}
+                  
+                  - label: "Contact Section"
+                    name: "contact"
+                    widget: "object"
+                    fields:
+                      - {label: "Title", name: "title", widget: "string", hint: "Heading for the contact section"}
+                      - {label: "Description", name: "description", widget: "text", hint: "Introduction text for the contact section"}
+                      - {label: "Form Title", name: "form_title", widget: "string", hint: "Title for the contact form"}
+                      - {label: "Success Message", name: "success_message", widget: "string", hint: "Message shown after form submission"}
+  
+           
   # ===== SERVICES =====
   - name: "services"
     label: "Services"
@@ -103,23 +141,6 @@ collections:
         default: []
       - {label: "Weight", name: "weight", widget: "number", value_type: "int", default: 50, hint: "Display order (lower numbers appear first)"}
 
-  # ===== PORTFOLIO SECTION SETTINGS =====
-  - name: "portfolio_section"
-    label: "Portfolio Section Settings"
-    files:
-      - file: "hugo.yaml"
-        label: "Portfolio Section"
-        name: "portfolio_section"
-        editor:
-          preview: false
-        fields:
-          - label: "Portfolio Section"
-            name: "params.sections.portfolio"
-            widget: "object"
-            fields:
-              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the portfolio section"}
-              - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the portfolio section"}
-  
 
   # ===== PROJECTS =====
   - name: "projects"
@@ -172,23 +193,7 @@ collections:
       - {label: "Rating", name: "rating", widget: "number", required: false, value_type: "int", min: 1, max: 5, default: 5, hint: "Client rating (1-5 stars)"}
       - {label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Should this testimonial appear on the homepage?"}
 
-  # ===== FAQ SECTION SETTINGS =====
-  - name: "faq_section"
-    label: "FAQ Section Settings"
-    files:
-      - file: "hugo.yaml"
-        label: "FAQ Section"
-        name: "faq_section"
-        editor:
-          preview: false
-        fields:
-          - label: "FAQ Section"
-            name: "params.sections.faqs"
-            widget: "object"
-            fields:
-              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the FAQ section"}
-              - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the FAQ section"}
-  
+
   # ===== FAQs =====
   - name: "faqs"
     label: "FAQs"
@@ -204,23 +209,6 @@ collections:
       - {label: "Answer", name: "answer", widget: "markdown", hint: "The answer to the question"}
       - {label: "Weight", name: "weight", widget: "number", value_type: "int", required: false, hint: "Order of appearance (lower numbers first)"}
 
-  # ===== CONTACT SECTION SETTINGS =====
-  - name: "contact_section"
-    label: "Contact Section Settings"
-    files:
-      - file: "hugo.yaml"
-        label: "Contact Section"
-        name: "contact_section"
-        editor:
-          preview: false
-        fields:
-          - label: "Contact Section"
-            name: "params.sections.contact"
-            widget: "object"
-            fields:
-              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the FAQ section"}
-              - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the FAQ section"}
-  
 
   # ===== PROCESS STEPS =====
   - name: "process"
