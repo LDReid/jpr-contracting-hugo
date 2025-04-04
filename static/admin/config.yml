@@ -70,21 +70,13 @@ collections:
         name: "services_section"
         editor:
           preview: false
-        fields:
-          - label: "Site Parameters"
-            name: "params"
-            widget: "object"
             fields:
-              - label: "Sections"
-                name: "sections"
+              - label: "Services Section"
+                name: "services"
                 widget: "object"
                 fields:
-                  - label: "Services Section"
-                    name: "services"
-                    widget: "object"
-                    fields:
-                      - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
-                      - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
+                  - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
+                  - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
           
     folder: "data/services"
     create: true
