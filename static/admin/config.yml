@@ -58,13 +58,13 @@ collections:
                   - {label: "Instagram", name: "instagram", widget: "string", required: false, hint: "Instagram profile URL (leave blank if not used)"}
                   - {label: "Twitter", name: "twitter", widget: "string", required: false, hint: "Twitter profile URL (leave blank if not used)"}
                   - {label: "LinkedIn", name: "linkedin", widget: "string", required: false, hint: "LinkedIn profile URL (leave blank if not used)"}
-  # ===== SERVICES =====
   
-  - name: "services"
-    label: "Services"
+  # ===== SERVICES SECTION SETTINGS =====
+  - name: "services_section"
+    label: "Services Section Settings"
     files:
       - file: "hugo.yaml"
-        label: "Services Section Settings"
+        label: "Services Section"
         name: "services_section"
         editor:
           preview: false
@@ -75,7 +75,10 @@ collections:
             fields:
               - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
               - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
-          
+  
+  # ===== SERVICES =====
+  - name: "services"
+    label: "Services"
     folder: "data/services"
     create: true
     extension: "yml"
@@ -207,4 +210,3 @@ collections:
               - {label: "Field Type", name: "type", widget: "select", options: ["text", "email", "tel", "textarea", "select"], default: "text"}
               - {label: "Required", name: "required", widget: "boolean", default: true, hint: "Is this field mandatory?"}
               - {label: "Placeholder", name: "placeholder", widget: "string", required: false, hint: "Example text that appears in the empty field"} 
-
