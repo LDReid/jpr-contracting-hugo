@@ -99,6 +99,24 @@ collections:
         default: []
       - {label: "Weight", name: "weight", widget: "number", value_type: "int", default: 50, hint: "Display order (lower numbers appear first)"}
 
+  # ===== PORTFOLIO SECTION SETTINGS =====
+  - name: "portfolio_section"
+    label: "Portfolio Section Settings"
+    files:
+      - file: "hugo.yaml"
+        label: "Portfolio Section"
+        name: "portfolio_section"
+        editor:
+          preview: false
+        fields:
+          - label: "Portfolio Section"
+            name: "portfolio"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the portfolio section"}
+              - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the portfolio section"}
+  
+
   # ===== PROJECTS =====
   - name: "projects"
     label: "Projects & Portfolio"
@@ -150,6 +168,23 @@ collections:
       - {label: "Rating", name: "rating", widget: "number", required: false, value_type: "int", min: 1, max: 5, default: 5, hint: "Client rating (1-5 stars)"}
       - {label: "Featured", name: "featured", widget: "boolean", default: false, hint: "Should this testimonial appear on the homepage?"}
 
+  # ===== FAQ SECTION SETTINGS =====
+  - name: "faq_section"
+    label: "FAQ Section Settings"
+    files:
+      - file: "hugo.yaml"
+        label: "FAQ Section"
+        name: "faq_section"
+        editor:
+          preview: false
+        fields:
+          - label: "FAQ Section"
+            name: "faqs"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the FAQ section"}
+              - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the FAQ section"}
+  
   # ===== FAQs =====
   - name: "faqs"
     label: "FAQs"
@@ -164,6 +199,24 @@ collections:
       - {label: "Question", name: "question", widget: "string", hint: "The frequently asked question"}
       - {label: "Answer", name: "answer", widget: "markdown", hint: "The answer to the question"}
       - {label: "Weight", name: "weight", widget: "number", value_type: "int", required: false, hint: "Order of appearance (lower numbers first)"}
+
+  # ===== CONTACT SECTION SETTINGS =====
+  - name: "contact_section"
+    label: "Contact Section Settings"
+    files:
+      - file: "hugo.yaml"
+        label: "Contact Section"
+        name: "contact_section"
+        editor:
+          preview: false
+        fields:
+          - label: "Contact Section"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the FAQ section"}
+              - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the FAQ section"}
+  
 
   # ===== PROCESS STEPS =====
   - name: "process"
