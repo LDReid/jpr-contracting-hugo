@@ -59,123 +59,33 @@ collections:
                   - {label: "Twitter", name: "twitter", widget: "string", required: false, hint: "Twitter profile URL (leave blank if not used)"}
                   - {label: "LinkedIn", name: "linkedin", widget: "string", required: false, hint: "LinkedIn profile URL (leave blank if not used)"}
       
-      # Homepage Sections Configuration
-      - file: "hugo.yaml"
-        label: "Homepage Sections"
-        name: "homepage_sections"
-        editor:
-          preview: false
-        fields:
-          - label: "Hero Section"
-            name: "params.sections.hero"
-            widget: "object"
-            fields:
-              - {label: "Title", name: "title", widget: "string", hint: "Main headline for the homepage"}
-              - {label: "Description", name: "description", widget: "text", hint: "Brief introduction text below the headline"}
-              - {label: "Background Image", name: "image", widget: "image", hint: "Hero background image (high quality, 1920x1080px minimum)"}
-              - {label: "Primary Button Text", name: "primary_button", widget: "string", hint: "Text for the main call-to-action button"}
-              - {label: "Primary Button URL", name: "primary_button_url", widget: "string", hint: "Where the primary button links to (e.g., /contact)"}
-              - {label: "Secondary Button Text", name: "secondary_button", widget: "string", required: false, hint: "Text for the optional secondary button"}
-              - {label: "Secondary Button URL", name: "secondary_button_url", widget: "string", required: false, hint: "Where the secondary button links to"}
-          
-          - label: "Services Section"
-            name: "params.sections.services"
-            widget: "object"
-            fields:
-              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
-              - {label: "Section Description", name: "description", widget: "text", hint: "Brief description of your services"}
-              - {label: "Featured Image", name: "image", widget: "image", hint: "Featured image for the services section"}
-              - {label: "Features", name: "features", widget: "list", hint: "Bullet point features to highlight", default: ["Quality Work", "Experienced Team", "Competitive Prices"]}
-              - label: "Featured Services"
-                name: "featured_services"
-                widget: "relation"
-                collection: "services"
-                search_fields: ["title", "description"]
-                value_field: "id"
-                display_fields: ["title"]
-                multiple: true
-                required: false
-                hint: "Select which services to feature on the homepage (or leave empty to show services marked as featured)"
-          
-          - label: "Portfolio Section"
-            name: "params.sections.portfolio"
-            widget: "object"
-            fields:
-              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the portfolio section"}
-              - {label: "Section Description", name: "description", widget: "text", hint: "Brief description for the portfolio section"}
-              - {label: "Number of Projects to Show", name: "count", widget: "number", value_type: "int", min: 3, max: 12, default: 6, hint: "How many projects to display on the homepage"}
-              - label: "Featured Projects"
-                name: "featured_projects"
-                widget: "relation"
-                collection: "projects"
-                search_fields: ["title", "location"]
-                value_field: "title"
-                display_fields: ["title", "location"]
-                multiple: true
-                required: false
-                hint: "Select specific projects to feature (or leave empty to show projects marked as featured)"
-          
-          - label: "Testimonials Section"
-            name: "params.sections.testimonials"
-            widget: "object"
-            fields:
-              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the testimonials section"}
-              - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the testimonials"}
-              - {label: "Number to Display", name: "count", widget: "number", value_type: "int", min: 1, max: 6, default: 3, hint: "How many testimonials to show"}
-              - label: "Featured Testimonials"
-                name: "featured_testimonials"
-                widget: "relation"
-                collection: "testimonials"
-                search_fields: ["name", "quote"]
-                value_field: "name"
-                display_fields: ["name"]
-                multiple: true
-                required: false
-                hint: "Select specific testimonials to feature (or leave empty to show testimonials marked as featured)"
-          
-          - label: "CTA Section"
-            name: "params.sections.cta"
-            widget: "object"
-            fields:
-              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the call-to-action section"}
-              - {label: "Section Description", name: "description", widget: "text", hint: "Text describing why visitors should contact you"}
-              - {label: "Button Text", name: "button_text", widget: "string", hint: "Text on the CTA button"}
-              - {label: "Button URL", name: "button_url", widget: "string", default: "/contact", hint: "Where the CTA button links to"}
-              - {label: "Background Image", name: "background", widget: "image", required: false, hint: "Optional background image for the CTA section"}
-          
-          - label: "Contact Section"
-            name: "params.sections.contact"
-            widget: "object"
-            fields:
-              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the contact section"}
-              - {label: "Section Description", name: "description", widget: "text", hint: "Brief text introducing the contact form"}
-              - {label: "Form Title", name: "form_title", widget: "string", hint: "Title above the contact form"}
-              - {label: "Success Message", name: "success_message", widget: "string", hint: "Message shown after successful form submission"}
-              - {label: "Map Embed Code", name: "map_embed", widget: "text", required: false, hint: "Google Maps embed code (iframe) for your business location"}
-              - {label: "Contact Info Box Title", name: "info_title", widget: "string", default: "Contact Information", hint: "Title for the contact information box"}
-              - {label: "Show Email", name: "show_email", widget: "boolean", default: true, hint: "Display email address in contact section"}
-              - {label: "Show Phone", name: "show_phone", widget: "boolean", default: true, hint: "Display phone number in contact section"}
-              - {label: "Show Address", name: "show_address", widget: "boolean", default: true, hint: "Display physical address in contact section"}
-
-      # Navigation Menu
-      - file: "hugo.yaml"
-        label: "Navigation Menu"
-        name: "navigation"
-        editor:
-          preview: false
-        fields:
-          - label: "Main Menu Items"
-            name: "menu.main"
-            widget: "list"
-            fields:
-              - {label: "Label", name: "name", widget: "string", hint: "Text that appears in the menu"}
-              - {label: "Link", name: "url", widget: "string", hint: "URL this menu item links to (e.g., /about)"}
-              - {label: "Order", name: "weight", widget: "number", value_type: "int", hint: "Order of appearance (lower numbers appear first)"}
-              - {label: "Identifier", name: "identifier", widget: "string", hint: "Unique identifier for this menu item"}
-
   # ===== SERVICES =====
+  
   - name: "services"
     label: "Services"
+
+    files:
+      - file: "hugo.yaml"
+        label: "Services Section Settings"
+        name: "services_section"
+        editor:
+          preview: false
+        fields:
+          - label: "Site Parameters"
+            name: "params"
+            widget: "object"
+            fields:
+              - label: "Sections"
+                name: "sections"
+                widget: "object"
+                fields:
+                  - label: "Services Section"
+                    name: "services"
+                    widget: "object"
+                    fields:
+                      - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
+                      - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
+          
     folder: "data/services"
     create: true
     extension: "yml"
@@ -227,7 +137,6 @@ collections:
         fields:
           - {label: "Quote", name: "quote", widget: "text", required: false, hint: "Client testimonial text"}
           - {label: "Client Name", name: "author", widget: "string", required: false, hint: "Name of the client who provided this testimonial"}
-      - {label: "Featured Project", name: "featured", widget: "boolean", default: false, hint: "Should this be highlighted as a featured project?"}
 
   # ===== TESTIMONIALS =====
   - name: "testimonials"
