@@ -70,7 +70,7 @@ collections:
           preview: false
         fields:
           - label: "Services Section"
-            name: "services"
+            name: "params.sections.services"
             widget: "object"
             fields:
               - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
@@ -110,7 +110,7 @@ collections:
           preview: false
         fields:
           - label: "Portfolio Section"
-            name: "portfolio"
+            name: "params.sections.portfolio"
             widget: "object"
             fields:
               - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the portfolio section"}
@@ -179,7 +179,7 @@ collections:
           preview: false
         fields:
           - label: "FAQ Section"
-            name: "faqs"
+            name: "params.sections.faqs"
             widget: "object"
             fields:
               - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the FAQ section"}
@@ -211,7 +211,7 @@ collections:
           preview: false
         fields:
           - label: "Contact Section"
-            name: "contact"
+            name: "params.sections.contact"
             widget: "object"
             fields:
               - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the FAQ section"}
