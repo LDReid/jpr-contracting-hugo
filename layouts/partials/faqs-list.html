@@ -1,5 +1,5 @@
 <div class="faqs-container">
-  {{ range $key, $faq := .Site.Data.faqs }}
+  {{ range $key, $faq := sort .Site.Data.faqs "weight" }}
     <div class="faq-item">
       <button class="faq-question">
         <span>{{ $faq.question }}</span>

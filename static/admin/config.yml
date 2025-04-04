@@ -155,24 +155,14 @@ collections:
     fields:
       - {label: "ID", name: "id", widget: "string", hint: "Short name used for URL and references (e.g., bathroom-remodels)"}
       - {label: "Title", name: "title", widget: "string", hint: "Service name as it will appear on the website"}
-      - {label: "Icon", name: "icon", widget: "string", required: false, hint: "FontAwesome icon code (e.g., fa-hammer)"}
       - {label: "Description", name: "description", widget: "text", hint: "Brief summary of this service (appears in listings)"}
       - {label: "Featured Image", name: "image", widget: "image", hint: "Main image representing this service"}
-      - {label: "Featured on Homepage", name: "featured", widget: "boolean", default: false, hint: "Should this service be shown on the homepage?"}
       - label: "Service Details"
-        name: "content"
-        widget: "markdown"
-        hint: "Complete description of the service, benefits, process, etc."
-        buttons: ["bold", "italic", "link", "heading-two", "heading-three", "heading-four", "bulleted-list", "numbered-list"]
-        editor_components: ["image"]
-      - label: "Gallery Images"
-        name: "gallery"
+        name: "features"
         widget: "list"
-        summary: "{{fields.caption}}"
-        required: false
-        fields:
-          - {label: "Image", name: "image", widget: "image"}
-          - {label: "Caption", name: "caption", widget: "string"}
+        hint: "List of key features or services offered (bullet points)"
+        default: []
+      - {label: "Weight", name: "weight", widget: "number", value_type: "int", default: 50, hint: "Display order (lower numbers appear first)"}
 
   # ===== PROJECTS =====
   - name: "projects"
@@ -237,8 +227,7 @@ collections:
     fields:
       - {label: "Question", name: "question", widget: "string", hint: "The frequently asked question"}
       - {label: "Answer", name: "answer", widget: "markdown", hint: "The answer to the question"}
-      - {label: "Category", name: "category", widget: "select", options: ["General", "Services", "Pricing", "Process", "Other"], default: "General", hint: "Which category this FAQ belongs to"}
-      - {label: "Order", name: "order", widget: "number", value_type: "int", required: false, hint: "Order of appearance (lower numbers first)"}
+      - {label: "Weight", name: "weight", widget: "number", value_type: "int", required: false, hint: "Order of appearance (lower numbers first)"}
 
   # ===== PROCESS STEPS =====
   - name: "process"
