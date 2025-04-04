@@ -66,8 +66,6 @@ collections:
       - file: "hugo.yaml"
         label: "Services Section"
         name: "services_section"
-        editor:
-          preview: false
         fields:
           - label: "Services Section"
             name: "params.sections.services"
@@ -75,7 +73,7 @@ collections:
             fields:
               - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
               - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
-              
+
   # ===== SERVICES =====
   - name: "services"
     label: "Services"
@@ -106,8 +104,6 @@ collections:
       - file: "hugo.yaml"
         label: "Portfolio Section"
         name: "portfolio_section"
-        editor:
-          preview: false
         fields:
           - label: "Portfolio Section"
             name: "params.sections.portfolio"
@@ -175,8 +171,6 @@ collections:
       - file: "hugo.yaml"
         label: "FAQ Section"
         name: "faq_section"
-        editor:
-          preview: false
         fields:
           - label: "FAQ Section"
             name: "params.sections.faqs"
@@ -207,15 +201,13 @@ collections:
       - file: "hugo.yaml"
         label: "Contact Section"
         name: "contact_section"
-        editor:
-          preview: false
         fields:
           - label: "Contact Section"
             name: "params.sections.contact"
             widget: "object"
             fields:
-              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the FAQ section"}
-              - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the FAQ section"}
+              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the contact section"}
+              - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the contact section"}
   
 
   # ===== PROCESS STEPS =====
