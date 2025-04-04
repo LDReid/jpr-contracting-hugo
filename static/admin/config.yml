@@ -75,7 +75,7 @@ collections:
             fields:
               - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
               - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
-  
+              
   # ===== SERVICES =====
   - name: "services"
     label: "Services"
