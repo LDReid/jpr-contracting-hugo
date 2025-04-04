@@ -65,12 +65,20 @@ collections:
     files:
       - file: "hugo.yaml"
         label: "Services Section"
-        name: "params.sections.services"
+        name: "params"
         editor:
           preview: false
         fields:
-            - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
-            - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
+          - label: "Services Section"
+            name: "sections"
+            widget: "object"
+            fields:
+              - label: "Services Page Header"
+                name: "services"
+                widget: "object"
+                fields:
+                  - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
+                  - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
               
   # ===== SERVICES =====
   - name: "services"
