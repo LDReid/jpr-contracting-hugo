@@ -58,25 +58,23 @@ collections:
                   - {label: "Instagram", name: "instagram", widget: "string", required: false, hint: "Instagram profile URL (leave blank if not used)"}
                   - {label: "Twitter", name: "twitter", widget: "string", required: false, hint: "Twitter profile URL (leave blank if not used)"}
                   - {label: "LinkedIn", name: "linkedin", widget: "string", required: false, hint: "LinkedIn profile URL (leave blank if not used)"}
-      
   # ===== SERVICES =====
   
   - name: "services"
     label: "Services"
-
     files:
       - file: "hugo.yaml"
         label: "Services Section Settings"
         name: "services_section"
         editor:
           preview: false
+        fields:
+          - label: "Services Section"
+            name: "services"
+            widget: "object"
             fields:
-              - label: "Services Section"
-                name: "services"
-                widget: "object"
-                fields:
-                  - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
-                  - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
+              - {label: "Section Title", name: "title", widget: "string", hint: "Heading for the services section"}
+              - {label: "Section Description", name: "description", widget: "text", hint: "Brief introduction for the services section"}
           
     folder: "data/services"
     create: true
